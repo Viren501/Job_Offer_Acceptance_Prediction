@@ -35,13 +35,13 @@ def load_data():
 @st.cache_resource
 def load_models():
     """Loads the trained ML model, scaler, feature columns, and ALL encoders."""
-    try:
-        model          = joblib.load("../models/best_model.pkl")
-        scaler         = joblib.load("../models/scaler.pkl")
-        feature_cols   = joblib.load("../models/feature_columns.pkl")
-        le_encoders    = joblib.load("../models/le_encoders.pkl")
-        oe_band        = joblib.load("../models/oe_offered_band.pkl")
-        ohe            = joblib.load("../models/ohe_encoder.pkl")
+    try:BASE_DIR       = os.path.dirname(os.path.abspath(__file__))
+model          = joblib.load(os.path.join(BASE_DIR, "../models/best_model.pkl"))
+scaler         = joblib.load(os.path.join(BASE_DIR, "../models/scaler.pkl"))
+feature_cols   = joblib.load(os.path.join(BASE_DIR, "../models/feature_columns.pkl"))
+le_encoders    = joblib.load(os.path.join(BASE_DIR, "../models/le_encoders.pkl"))
+oe_band        = joblib.load(os.path.join(BASE_DIR, "../models/oe_offered_band.pkl"))
+ohe            = joblib.load(os.path.join(BASE_DIR, "../models/ohe_encoder.pkl"))
         return model, scaler, feature_cols, le_encoders, oe_band, ohe
     except Exception as e:
         st.error(f"Model loading error: {e}")
