@@ -658,7 +658,7 @@ elif choice == "Bulk Scanner":
                 return "background-color: #f8d7da; color: #721c24; font-weight: bold"
             return ""
 
-        styled = display_df.style.applymap(highlight_prediction, subset=["Prediction"])
+        styled = display_df.style.map(highlight_prediction, subset=["Prediction"])
         st.dataframe(styled, use_container_width=True, height=420)
 
         # ── Download results ─────────────────────────────────────────────────
