@@ -18,7 +18,7 @@ st.set_page_config(page_title="Job Offer Acceptance Prediction", page_icon="📊
 @st.cache_data
 def load_data():
     """Loads the dataset for Dashboard and Analysis tabs."""
-    file_path = "../data/cleaned_hr_dataset.csv"
+    file_path = "data/cleaned_hr_dataset.csv"
     if not os.path.exists(file_path):
         file_path = "../data/hr_dataset.csv"
     try:
